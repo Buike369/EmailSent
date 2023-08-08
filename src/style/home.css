@@ -1,0 +1,290 @@
+
+.headerLogoDiv{
+    padding:10px 10px ;
+    background-color:#0d021af7;
+}
+.headerLogo{
+    width:100%;
+    max-width: 1000px;
+    margin:0 auto;
+}
+.pathFile{
+    width:100%;
+    max-width: 1000px !important;
+    margin:0 auto;
+}
+.forMe{
+    text-decoration: none;
+
+}
+.ppc{
+    width:150px;
+    padding:2px 8px
+}
+.OBjy{
+    color:#fdfdfd;
+    text-align: center;
+    padding:20px 10px 30px 10px;
+    font-size: 24px;
+    font-weight: 700;
+    transform: translate();
+  
+}
+.tap{
+    color:#b2b0bf;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.heroText{
+    display:flex;
+    align-items: center;
+}
+.formDiv{
+    margin-top: 60px;
+    width:100%;
+    max-width:400px;
+    background-color: hsl(0, 0%, 100%);
+    border-radius:8px;
+    padding: 0 20px;
+    margin-left: 50px;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+.regDiv{
+    padding:20px 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color:#000;
+}
+.inputCheck{
+    outline:none;
+    border:0;
+    width:100%;
+    color:#000;
+    font-size: 14px;
+    padding:5px 0;
+    border-bottom: 1px solid gray;
+    margin-bottom: 15px;
+}
+.labelName{
+    font-size: 15px;
+    font-weight: 600;
+    color: #030204;
+}
+.filesDiv{
+    display:flex;
+    align-items: center;
+    gap:15px;
+    margin-bottom: 20px;
+}
+.loansD{
+    margin-left: 3px;
+    color:#000
+}
+.ppLink{
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    background-color: #090212c9;
+}
+.submit{
+    width:100%;
+    max-width: 100px;
+    padding:10px 15px;
+    border:1px solid gray;
+    border-radius: 8px;
+    text-align: center;
+    margin:15px auto 0 auto !important;
+    color:#fff;
+    /* background:#5a3881; */
+    cursor:pointer
+
+}
+
+.submit1 {
+    width: 100%;
+    max-width: 100px;
+ 
+
+ 
+    margin: 15px auto 0 auto !important;
+ 
+}
+.submit:hover{
+    background-color: #ffffff;
+    color:#000
+}
+.LogoN{
+    font-family: 'Lobster', cursive;
+    color:#ffffff;
+    font-size: 24px;
+}
+.LogoP{
+    position:relative
+}
+.LogoSubT{
+    font-size: 10px;
+    color:#88819f;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    
+}
+
+.heroTextY{
+        font-size: 36px;
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 15px;
+            
+}
+.agree{
+    font-size: 14px;
+        color: #38373a;
+        font-weight: 500;
+}
+.investIn{
+    color:#fff;
+    font-size: 16px;
+    font-weight: 500;
+}
+.OBJDiv{
+    display:flex;
+
+}
+.skillDiv{
+    width:50%;
+    padding:10px 20px;
+}
+.facility{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color:#f7f4ff;
+    margin-bottom: 15px;
+}
+
+
+.footerDidV{
+    background-color: #0e0914;
+    padding:20px 
+}
+
+.pli{
+
+    width:100%;
+    max-width: 980px;
+    text-align: center;
+    margin:0 auto;
+    color:#a9a9a9;
+}
+
+.footerIconsUl{
+    display:flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+    margin-bottom: 20px;
+
+}
+.iconSize{
+    font-size: 24px;
+}
+.copyRight{
+    text-align: center;
+    padding:25px 10px 10px 10px;
+    color:gray;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.pinkL{
+position: absolute; left:0; right:0; top:0; bottom:0
+}
+
+/* Works for Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+.widthPar{
+    width:50%
+}
+
+@media(max-width:768px){
+    .pip{
+        padding:10px 5px
+    }
+
+ .heroText {
+       display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+     .widthPar {
+         width: 100%
+        }
+      .heroTextY {
+    font-size: 24px;
+    text-align: center;
+     margin-top: 25px;
+ }
+ .investIn {
+    text-align: center;
+    }
+
+ .formDiv {
+            padding: 10px 8px;
+            margin-left: 0px;
+            width:100%;
+            max-width: 100%;
+           
+        }
+        .spaceBar{
+            padding:0 10px
+        }
+                .pinkL {
+                    position: relative !important;
+                  
+                }
+        .mainDivH{
+            height: auto !important;
+            background-image: none !important;
+          background-color: #5c3c81 !important;
+        }
+                .OBJDiv {
+                    flex-direction: column;
+        
+                }
+                                .skillDiv {
+                                    width: 100%;
+                                    padding: 10px 5px;
+                                }
+        .uma{
+            height:auto !important;
+            background-image: none !important;
+                background-color: #3f255c !important;
+           
+        }
+        .ppLink{
+            position:relative !important
+        }
+                .LogoN {
+                    font-family: 'Lobster', cursive;
+                    color: #ffffff;
+                    font-size: 20px;
+                }
+
+                                .tap {
+                                    color: #bababd;
+                                    text-align: center;
+                                    padding:0 6px
+                                }
+}
+
