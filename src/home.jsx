@@ -25,6 +25,8 @@ const Home = ()=> {
   const [check2,setCheck2]=useState(false)
     const [agreement, setAgreement] = useState(false);
     const [message,setMessage]=useState("")
+
+     const [error,setError]=useState("")
      
 
     const pickSelection =()=>{
@@ -44,15 +46,27 @@ const handleChange = (event) => {
   const postInfo =(e)=>{
 e.preventDefault()
     if((inputs.name.length === 0) || (inputs.localGovernment.length === 0) || (inputs.mobileNumber.length === 0) || (inputs.interest.length === 0) || (inputs.residentialAddress.length === 0) || (inputs.email.length === 0) || (inputs.localGovernment.length === 0)){
-      console.log("field must not be empty")
+      setError("field must not be empty")
+       setTimeout(()=>{
+           setError("")
+        },3000)
     }else if(validator.isEmail(inputs.email) === false){
-console.log("invalid Email")
+setError("invalid Email")
+ setTimeout(()=>{
+           setError("")
+        },3000)
     }else if (validator.isMobilePhone(inputs.mobileNumber,'en-NG',{strictMode:false}) === false){
- console.log("invalid phone number")
+ setError("invalid phone number")
+  setTimeout(()=>{
+           setError("")
+        },3000)
     }else{
 
       axios.post("https://tsyef.onrender.com/api/post/form",inputs).then((response)=>{
-        setMessage("Successfully submitted Your form")
+        setMessage("Successful Registration")
+        setTimeout(()=>{
+           setMessage("")
+        },3000)
       }).catch((err)=>{
        console.log(err)
       })
@@ -207,7 +221,8 @@ We believe that empowering  selfless youths with Finance, skills, machinery, and
           </div>
         </div>
         
-
+    { message &&   <div className="successM">{message}</div> }
+     { error &&   <div className="successM errors">{error}</div> }
     </div>
   )
 }

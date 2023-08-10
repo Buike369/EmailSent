@@ -198,6 +198,23 @@
     margin:0 auto;
     color:#a9a9a9;
 }
+.successM{
+    color:#fff;
+    background: #059f05;
+    position:absolute;
+    padding:20px 30px;
+    left:50%;
+    top:50vw;
+    font-weight: 600;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    border: 1px solid #059f05;
+}
+.errors{
+background: #fff !important;
+color:red !important;
+border: 1px solid red !important;
+}
 
 .footerIconsUl{
     display:flex;
