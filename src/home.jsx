@@ -23,6 +23,11 @@ const Home = ()=> {
   const [check,setCheck]=useState(false)
   const [check1,setCheck1]=useState(false)
   const [check2,setCheck2]=useState(false)
+  const [check4,setCheck4]=useState(false)
+  const [check5,setCheck5]=useState(false)
+  const [check6,setCheck6]=useState(false)
+  const [check7,setCheck7]=useState(false)
+
     const [agreement, setAgreement] = useState(false);
     const [message,setMessage]=useState("")
 
@@ -41,6 +46,7 @@ const Home = ()=> {
   }
 const handleChange = (event) => {
     setAgreement(event.target.checked);
+    setCheck4(!check4)
   }
 
   const postInfo =(e)=>{
@@ -63,14 +69,52 @@ setError("invalid Email")
     }else{
 
       axios.post("https://tsyef.onrender.com/api/post/form",inputs).then((response)=>{
+        // axios.post("http://localhost:8080/api/post/form",inputs).then((response)=>{
         setMessage("Successful Registration")
         setTimeout(()=>{
            setMessage("")
+           setInputs({
+            name:"",
+    state:"",
+    mobileNumber:"",
+    email:"",
+    residentialAddress:"",
+    interest:"",
+    city:'',
+    localGovernment:""
+           })
+           setAgreement(!agreement)
+            setCheck4(!check4)
+            if(check5 === true){
+              setCheck5(!check5)
+              setCheck6(false)
+               setCheck7(false)
+            }
+             if(check6 === true){
+              setCheck5(false)
+              setCheck6(!check6)
+               setCheck7(false)
+            }
+             if(check7 === true){
+              setCheck5(false)
+              setCheck6(false)
+               setCheck7(!check7)
+            }
         },3000)
       }).catch((err)=>{
        console.log(err)
       })
     } 
+  }
+
+  const checkWidth =()=>{
+ setCheck5(!check5)
+  }
+  const checkWidth1 =()=>{
+     setCheck6(!check6)
+  }
+  const checkWidth2 =()=>{
+     setCheck7(!check7)
   }
 
  
@@ -105,51 +149,53 @@ setError("invalid Email")
     <div className='widthPar'>
       <div className='spaceBar'>
       <div className='formDiv'>
-      <form >
+      <form  style={{position:"relative"}}>
         <div>
             <div className="regDiv">Registration</div>
         </div>
         <label className="labelName">Name</label>
-        <div><input type="text" placeholder="full name" name="name" className='inputCheck' onChange={changeHandle}/></div>
+        <div><input type="text" value={inputs.name} placeholder="full name" name="name" className='inputCheck' onChange={changeHandle}/></div>
        
          <label className="labelName">Mobile Number</label>
-        <div><input type="number" placeholder="mobile number" name="mobileNumber" className='inputCheck' onChange={changeHandle} style={{color:"#000"}} min="0" max={5}/></div>
+        <div><input type="number" value={inputs.mobileNumber} placeholder="mobile number" name="mobileNumber" className='inputCheck' onChange={changeHandle} style={{color:"#000"}} min="0" max={5}/></div>
          
            <label className="labelName">Email</label>
-        <div><input type="email" placeholder="email" name="email" className='inputCheck' onChange={changeHandle} /></div>
+        <div><input type="email" value={inputs.email} placeholder="email" name="email" className='inputCheck' onChange={changeHandle} /></div>
           <label className="labelName">Residential Address</label>
-        <div><input type="text" placeholder="address" name="residentialAddress"  className='inputCheck' onChange={changeHandle} style={{color:"#000"}}/></div>
+        <div><input type="text" value={inputs.residentialAddress} placeholder="address" name="residentialAddress"  className='inputCheck' onChange={changeHandle} style={{color:"#000"}}/></div>
         <label className="labelName">City</label>
-        <div><input type="text" placeholder="city" name ="city" className='inputCheck' onChange={changeHandle}/></div>
+        <div><input type="text" value={inputs.city} placeholder="city" name ="city" className='inputCheck' onChange={changeHandle}/></div>
          <label className="labelName">Local Government Of Origin</label>
-        <div><input type="text" placeholder="local government" name ="localGovernment" className='inputCheck' onChange={changeHandle}/></div>
+        <div><input type="text" value={inputs.localGovernment} placeholder="local government" name ="localGovernment" className='inputCheck' onChange={changeHandle}/></div>
          <label className="labelName">State of origin</label>
-        <div><input type="text" placeholder="state" name ="state" className='inputCheck' onChange={changeHandle}/></div>
+        <div><input type="text" value={inputs.state} placeholder="state" name ="state" className='inputCheck' onChange={changeHandle}/></div>
         <label className="labelName">Interest</label>
         <div className="filesDiv">
           <div>
-          <input type="checkbox" id="training" name="interest" value="training" onChange={changeHandle} />
+          <input type="checkbox" id="training" name="interest" value="training" onChange={changeHandle}  checked={check5} onClick={checkWidth}/>
           <label  htmlFor="training" className="loansD">Training</label>
           </div>
 
           <div>
-          <input type="checkbox" id="loan" name="interest" value="loan" onChange={changeHandle} />
+          <input type="checkbox" id="loan" name="interest" value="loan" onChange={changeHandle} checked={check6}  onClick={checkWidth1}/>
            <label  htmlFor="loan" className="loansD">Loan</label>
           </div>
 
           <div>
-          <input type="checkbox" id="grants" name="interest" value="grant" onChange={changeHandle}  />
+          <input type="checkbox" id="grants" name="interest" value="grant" onChange={changeHandle} checked={check7}  onClick={checkWidth2}/>
            <label  htmlFor="grants" className="loansD">Grants</label>
           </div>
         </div>
         <div>
-          <input type="checkbox" name="agreement"  onChange={handleChange}/>
+          <input type="checkbox" name="agreement"  onChange={handleChange} checked={check4}/>
           <label  htmlFor="agree" className="agree">
             By clicking here I give my consent for <span></span>TSYEF to contact me for financial purposes. You can opt out at any time. For further details please call our customer number  at top.
           </label>
         </div>
 
         <div className='submit1'><button disabled={!agreement} className="submit" onClick={postInfo}  style={{backgroundColor:!agreement ?"gray":"#5a3881"}}>Submit</button></div>
+         { message &&   <div className="successM">{message}</div> }
+     { error &&   <div className="successM errors">{error}</div> }
 
         </form>
         </div>
@@ -221,8 +267,6 @@ We believe that empowering  selfless youths with Finance, skills, machinery, and
           </div>
         </div>
         
-    { message &&   <div className="successM">{message}</div> }
-     { error &&   <div className="successM errors">{error}</div> }
     </div>
   )
 }
